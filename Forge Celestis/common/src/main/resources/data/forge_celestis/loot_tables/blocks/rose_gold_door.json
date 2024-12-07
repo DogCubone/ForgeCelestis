@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "forge_celestis:blocks/rose_gold_door",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "forge_celestis:rose_gold_door",
+          "conditions": [
+            {
+              "block": "forge_celestis:rose_gold_door",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
