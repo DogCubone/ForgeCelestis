@@ -1,0 +1,19 @@
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2024-12-05 20:42:35 -0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:savanna_plateau": "2024-12-05 20:44:56 -0300",
+      "minecraft:river": "2024-12-05 20:43:06 -0300",
+      "minecraft:forest": "2024-12-05 20:42:48 -0300",
+      "minecraft:savanna": "2024-12-05 20:42:39 -0300",
+      "minecraft:plains": "2024-12-05 20:43:09 -0300"
+    },
+    "done": false
+  },
+  "DataVersion": 3465
+}
