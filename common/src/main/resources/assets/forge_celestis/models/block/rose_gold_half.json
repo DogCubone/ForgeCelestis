@@ -1,5 +1,5 @@
 {
-  "parent": "forge_celestis:custom/ingot_block",
+  "parent": "forge_celestis:custom/half_ingot_block",
   "textures": {
     "all": "forge_celestis:block/ingots/rose_gold_ingot",
     "particle": "forge_celestis:block/ingots/rose_gold_ingot",

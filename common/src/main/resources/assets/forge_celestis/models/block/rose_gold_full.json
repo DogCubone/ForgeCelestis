@@ -1,0 +1,9 @@
+{
+  "parent": "forge_celestis:custom/full_ingot_block",
+  "textures": {
+    "all": "forge_celestis:block/ingots/rose_gold_ingot",
+    "particle": "forge_celestis:block/ingots/rose_gold_ingot",
+    "0": "forge_celestis:block/ingots/rose_gold_ingot"
+  },
+  "render_type": "solid"
+}

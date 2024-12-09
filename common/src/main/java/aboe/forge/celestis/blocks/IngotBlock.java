@@ -27,6 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class IngotBlock extends Block implements SimpleWaterloggedBlock {
     public static final IntegerProperty StoredIngots = IntegerProperty.create("stored_ingots", 1, 4) ;
@@ -43,7 +44,7 @@ public class IngotBlock extends Block implements SimpleWaterloggedBlock {
 
     //region Add Ingots to the block
     @Override
-    public InteractionResult use(BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         ItemStack item = player.getItemInHand(interactionHand);
         int storedIngots = blockState.getValue(StoredIngots);
         boolean isClient = world.isClientSide;
@@ -54,7 +55,7 @@ public class IngotBlock extends Block implements SimpleWaterloggedBlock {
                 if (storedIngots <= 1)
                     world.removeBlock(blockPos, true);
                 else
-                    world.setBlock(blockPos, blockState.setValue(StoredIngots, storedIngots - 1), 3);
+                    world.setBlockAndUpdate(blockPos, blockState.setValue(StoredIngots, storedIngots - 1));
 
                 //Adds item to the players inventory and plays a lil sound
                 player.addItem(new ItemStack(blockState.getBlock().asItem(), 1));
@@ -64,9 +65,9 @@ public class IngotBlock extends Block implements SimpleWaterloggedBlock {
         }
         else if (blockState.getBlock() == Block.byItem(item.getItem()) && storedIngots < 4){
             if (!isClient) {
-                world.setBlock(blockPos, blockState.cycle(StoredIngots), 3);
+                world.setBlockAndUpdate(blockPos, blockState.cycle(StoredIngots));
 
-                //Misc Stuff, plays a lil sound and give adds the item to the used stats of the player (idk why I did that)
+                //Misc Stuff, plays a lil sound and give adds the item to the used stats of the player (IDK why I did that)
                 player.awardStat(Stats.ITEM_USED.get(item.getItem()));
                 world.playSound(null, blockPos,SoundEvents.STONE_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
 
@@ -82,7 +83,7 @@ public class IngotBlock extends Block implements SimpleWaterloggedBlock {
 
     //Some misc code that I stole from MCreator generated code
     @Override
-    public FluidState getFluidState(BlockState state) {
+    public @NotNull FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
@@ -92,12 +93,12 @@ public class IngotBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     @Override
-    public VoxelShape getVisualShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getVisualShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return Shapes.empty();
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return switch (state.getValue(FACING)) {
             default -> box(3, 0, 3, 14, 8, 14);
             case NORTH -> box(2, 0, 2, 13, 8, 13);
@@ -107,7 +108,7 @@ public class IngotBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor world, BlockPos currentPos, BlockPos facingPos) {
+    public @NotNull BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor world, BlockPos currentPos, BlockPos facingPos) {
         if (state.getValue(WATERLOGGED)) {
             world.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
@@ -123,17 +124,17 @@ public class IngotBlock extends Block implements SimpleWaterloggedBlock {
     }
 
 
-    public BlockState rotate(BlockState state, Rotation rot) {
+    public @NotNull BlockState rotate(BlockState state, Rotation rot) {
         return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }
 
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
+    public @NotNull BlockState mirror(BlockState state, Mirror mirrorIn) {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(StoredIngots, WATERLOGGED, FACING);
+        builder.add(FACING, StoredIngots, WATERLOGGED);
     }
 
 }

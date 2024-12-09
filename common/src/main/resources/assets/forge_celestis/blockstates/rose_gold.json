@@ -1,18 +1,63 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "forge_celestis:block/rose_gold"
+    "facing=north,stored_ingots=1": {
+      "model": "forge_celestis:block/rose_gold_single"
     },
-    "facing=east": {
-      "model": "forge_celestis:block/rose_gold",
+    "facing=north,stored_ingots=2": {
+      "model": "forge_celestis:block/rose_gold_half"
+    },
+    "facing=north,stored_ingots=3": {
+      "model": "forge_celestis:block/rose_gold_third"
+    },
+    "facing=north,stored_ingots=4": {
+      "model": "forge_celestis:block/rose_gold_full"
+    },
+    "facing=east,stored_ingots=1": {
+      "model": "forge_celestis:block/rose_gold_single",
       "y": 90
     },
-    "facing=south": {
-      "model": "forge_celestis:block/rose_gold",
+    "facing=east,stored_ingots=2": {
+      "model": "forge_celestis:block/rose_gold_half",
+      "y": 90
+    },
+    "facing=east,stored_ingots=3": {
+      "model": "forge_celestis:block/rose_gold_third",
+      "y": 90
+    },
+    "facing=east,stored_ingots=4": {
+      "model": "forge_celestis:block/rose_gold_full",
+      "y": 90
+    },
+    "facing=south,stored_ingots=1": {
+      "model": "forge_celestis:block/rose_gold_single",
       "y": 180
     },
-    "facing=west": {
-      "model": "forge_celestis:block/rose_gold",
+    "facing=south,stored_ingots=2": {
+      "model": "forge_celestis:block/rose_gold_half",
+      "y": 180
+    },
+    "facing=south,stored_ingots=3": {
+      "model": "forge_celestis:block/rose_gold_third",
+      "y": 180
+    },
+    "facing=south,stored_ingots=4": {
+      "model": "forge_celestis:block/rose_gold_full",
+      "y": 180
+    },
+    "facing=west,stored_ingots=1": {
+      "model": "forge_celestis:block/rose_gold_single",
+      "y": 270
+    },
+    "facing=west,stored_ingots=2": {
+      "model": "forge_celestis:block/rose_gold_half",
+      "y": 270
+    },
+    "facing=west,stored_ingots=3": {
+      "model": "forge_celestis:block/rose_gold_third",
+      "y": 270
+    },
+    "facing=west,stored_ingots=4": {
+      "model": "forge_celestis:block/rose_gold_full",
       "y": 270
     }
   }
