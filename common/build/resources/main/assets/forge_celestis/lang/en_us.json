@@ -1,6 +1,10 @@
 {
+  "block.forge_celestis.basic_forge": "Basic Forge",
   "block.forge_celestis.rose_gold": "Rose Gold",
   "block.forge_celestis.voltite": "Voltite Ingot",
-  "block.forge_celestis.basic_forge": "Basic Forge",
-  "block.forge_celestis.rose_gold_door": "Rose Gold Door"
+  "block.forge_celestis.rose_gold_door": "Rose Gold Door",
+  "block.forge_celestis.rose_gold_grid": "Rose Gold Grid",
+
+  "forge_celestis.blocks_tab": "Forge Celestis Blocks",
+  "forge_celestis.misc_item": "Forge Celestis Items"
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "forge_celestis:block/rose_gold"
+    },
+    "facing=east": {
+      "model": "forge_celestis:block/rose_gold",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "forge_celestis:block/rose_gold",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "forge_celestis:block/rose_gold",
+      "y": 270
+    }
+  }
+}

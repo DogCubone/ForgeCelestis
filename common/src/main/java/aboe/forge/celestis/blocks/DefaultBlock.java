@@ -16,7 +16,7 @@ public class DefaultBlock extends Block {
     }
 
     public DefaultBlock() {
-        super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f));
+        super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1.2f));
     }
 
     public DefaultBlock(Boolean canRotate){

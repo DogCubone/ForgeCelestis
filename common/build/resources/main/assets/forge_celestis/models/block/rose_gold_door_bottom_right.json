@@ -1,9 +1,9 @@
 {
   "parent": "block/door_bottom_right",
   "textures": {
-    "particle": "forge_celestis:block/rose_gold_door_0",
-    "bottom": "forge_celestis:block/rose_gold_door_0",
-    "top": "forge_celestis:block/rose_gold_door_1"
+    "particle": "forge_celestis:block/doors/rose_gold_door_0",
+    "bottom": "forge_celestis:block/doors/rose_gold_door_0",
+    "top": "forge_celestis:block/doors/rose_gold_door_1"
   },
   "render_type": "cutout"
 }
