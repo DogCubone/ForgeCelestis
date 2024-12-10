@@ -1,20 +1,63 @@
 {
   "type": "minecraft:block",
-  "random_sequence": "forge_celestis:blocks/rose_gold",
   "pools": [
     {
-      "rolls": 1.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "forge_celestis:rose_gold",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "stored_ingots": "2"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "forge_celestis:rose_gold",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "stored_ingots": "3"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "forge_celestis:rose_gold",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "stored_ingots": "4"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
           "name": "forge_celestis:rose_gold"
         }
-      ]
+      ],
+      "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "forge_celestis:blocks/rose_gold"
 }

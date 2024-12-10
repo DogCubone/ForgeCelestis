@@ -13,6 +13,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,13 +30,13 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class IngotBlock extends Block implements SimpleWaterloggedBlock {
+public class IngotBlock extends FallingBlock implements SimpleWaterloggedBlock {
     public static final IntegerProperty StoredIngots = IntegerProperty.create("stored_ingots", 1, 4) ;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public IngotBlock() {
-        super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(0.6f));
+        super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(0.3f));
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(StoredIngots, 1)
                 .setValue(WATERLOGGED, false)
@@ -120,7 +121,6 @@ public class IngotBlock extends Block implements SimpleWaterloggedBlock {
         boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
         return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection()).setValue(WATERLOGGED, flag);
     }
-
 
     public @NotNull BlockState rotate(BlockState state, Rotation rot) {
         return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
