@@ -1,9 +1,11 @@
 package aboe.forge.celestis.registers;
 
 import aboe.forge.celestis.ForgeCelestis;
+import aboe.forge.celestis.Items.FunnyStick;
 import aboe.forge.celestis.blocks.DefaultBlock;
 import aboe.forge.celestis.blocks.DefaultDoor;
-import aboe.forge.celestis.blocks.EmptyBlock;
+import aboe.forge.celestis.blocks.LampBlock;
+import aboe.forge.celestis.blocks.TransparentBlock;
 import aboe.forge.celestis.blocks.IngotBlock;
 
 import dev.architectury.registry.registries.DeferredRegister;
@@ -64,26 +66,28 @@ public class ObjectRegister {
 
 
     //region Items:
-
+    public static final RegistrySupplier<Item> SLIME_STICK = items.register("slime_stick", () -> new FunnyStick(new Item.Properties()));
     //endregion Items
 
-
     //region Blocks:
-    public static final RegistrySupplier<Block> ROSE_GOLD = blocks.register("rose_gold", IngotBlock::new);
-    public static final RegistrySupplier<Block> VOLTITE = blocks.register("voltite", DefaultBlock::new);
+    public static final RegistrySupplier<Block> ROSE_GOLD_BULB = blocks.register("rose_gold_bulb", () -> new LampBlock());
     public static final RegistrySupplier<Block> BASIC_FORGE = blocks.register("basic_forge", () -> new DefaultBlock(true));
     public static final RegistrySupplier<Block> ROSE_GOLD_DOOR = blocks.register("rose_gold_door", DefaultDoor::new);
-    public static final RegistrySupplier<Block> ROSE_GOLD_GRID = blocks.register("rose_gold_grid", EmptyBlock::new);
+    public static final RegistrySupplier<Block> ROSE_GOLD_GRID = blocks.register("rose_gold_grid", TransparentBlock::new);
     //endregion Blocks
 
-    //region Ingot Item
+    //region Ingot Stuff
+    public static final RegistrySupplier<Block> ROSE_GOLD = blocks.register("rose_gold", IngotBlock::new);
+    public static final RegistrySupplier<Block> VOLTITE = blocks.register("voltite", IngotBlock::new);
+    //ingot item
     public static final RegistrySupplier<Item> ROSE_GOLD_INGOT = blockItem(ROSE_GOLD);
     public static final RegistrySupplier<Item> VOLTITE_INGOT = blockItem(VOLTITE);
-    //endregion Ingot Item
+    //endregion Ingot Stuff
 
 
     //region Block Item
     public static final RegistrySupplier<Item> BASIC_FORGE_ITEM = blockItem(BASIC_FORGE);
+    public static final RegistrySupplier<Item> ROSE_GOLD_BULB_ITEM = blockItem(ROSE_GOLD_BULB);
     public static final RegistrySupplier<Item> ROSE_GOLD_DOOR_ITEM = doubleBlockItem(ROSE_GOLD_DOOR);
     public static final RegistrySupplier<Item> ROSE_GOLD_GRID_ITEM = buildingBlockItem(ROSE_GOLD_GRID);
     //endregion Block Item

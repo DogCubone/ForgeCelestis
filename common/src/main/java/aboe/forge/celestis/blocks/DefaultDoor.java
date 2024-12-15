@@ -8,8 +8,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 public class DefaultDoor extends DoorBlock {
 
     public DefaultDoor() {
-        super(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR).dynamicShape().noOcclusion(), BlockSetType.STONE);
+        super(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR).dynamicShape(), BlockSetType.STONE);
     }
-
 
 }

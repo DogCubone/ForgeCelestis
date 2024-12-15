@@ -20,13 +20,14 @@ public class TabRegister {
             DeferredRegister.create(ForgeCelestis.MOD_ID, Registries.CREATIVE_MODE_TAB);
 
 
-    public static final RegistrySupplier<CreativeModeTab> BLOCKS_TAB = TABS.register(
-            "bulding_blocks", // Tab ID
-            () -> CreativeTabRegistry.create(
-                    Component.translatable("forge_celestis.blocks_tab"), // Tab Name
-                    () -> new ItemStack(ObjectRegister.ROSE_GOLD_DOOR_ITEM.get()) // Icon
-            )
-    );
+    public static final RegistrySupplier<CreativeModeTab> BLOCKS_TAB = TABS.register("bulding_blocks",
+            () -> new CreativeModeTab.Builder(CreativeModeTab.Row.TOP, 1).title(Component.translatable("forge_celestis.blocks_tab"))
+                    .icon(() -> new ItemStack(ObjectRegister.ROSE_GOLD_BULB_ITEM.get())).displayItems(((itemDisplayParameters, add) -> {
+                        add.accept(new ItemStack(ObjectRegister.ROSE_GOLD_BULB_ITEM.get()));
+                        add.accept(new ItemStack(ObjectRegister.ROSE_GOLD_GRID_ITEM.get()));
+                        add.accept(new ItemStack(ObjectRegister.ROSE_GOLD_DOOR_ITEM.get()));
+                    }))
+                    .build());
 
     public static final RegistrySupplier<CreativeModeTab> MISC_ITEM_TAB = TABS.register("misc_item",
             () -> new CreativeModeTab.Builder(CreativeModeTab.Row.TOP, 1).title(Component.translatable("forge_celestis.misc_item"))

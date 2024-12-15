@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lights_on=false": {
+      "model": "forge_celestis:block/rose_gold_bulb_off"
+    },
+    "lights_on=true": {
+      "model": "forge_celestis:block/rose_gold_bulb_on"
+    }
+  }
+}

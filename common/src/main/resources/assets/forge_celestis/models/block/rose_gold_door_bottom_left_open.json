@@ -4,6 +4,5 @@
     "particle": "forge_celestis:block/doors/rose_gold_door_0",
     "bottom": "forge_celestis:block/doors/rose_gold_door_0",
     "top": "forge_celestis:block/doors/rose_gold_door_1"
-  },
-  "render_type": "cutout"
+  }
 }

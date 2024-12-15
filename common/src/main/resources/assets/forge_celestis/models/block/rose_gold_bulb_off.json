@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "forge_celestis:block/rose_gold_bulb_off",
+    "particle": "forge_celestis:block/rose_gold_bulb_off"
+  }
+}
