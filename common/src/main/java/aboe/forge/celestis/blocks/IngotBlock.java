@@ -13,7 +13,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -68,7 +67,7 @@ public class IngotBlock extends FallingBlock implements SimpleWaterloggedBlock {
             if (!isClient) {
                 world.setBlockAndUpdate(blockPos, blockState.cycle(StoredIngots));
 
-                //Misc Stuff, plays a lil sound and give adds the item to the used stats of the player (IDK why I did that)
+                //Misc Stuff, plays a lil sound and adds the item to the used stats of the player (IDK why I did that)
                 player.awardStat(Stats.ITEM_USED.get(item.getItem()));
                 world.playSound(null, blockPos,SoundEvents.STONE_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
 
